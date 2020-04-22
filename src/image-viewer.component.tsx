@@ -468,7 +468,7 @@ export default class ImageViewer extends React.Component<Props, State> {
           cropWidth={this.width}
           cropHeight={this.height}
           maxOverflow={this.props.maxOverflow}
-          horizontalOuterRangeOffset={this.handleHorizontalOuterRangeOffset}
+          // horizontalOuterRangeOffset={null}
           responderRelease={this.handleResponderRelease}
           onMove={this.props.onMove}
           onLongPress={this.handleLongPressWithIndex.get(index)}
@@ -477,6 +477,9 @@ export default class ImageViewer extends React.Component<Props, State> {
           enableSwipeDown={this.props.enableSwipeDown}
           swipeDownThreshold={this.props.swipeDownThreshold}
           onSwipeDown={this.handleSwipeDown}
+          enableSwipeUp={this.props.enableSwipeUp}
+          swipeUpThreshold={this.props.swipeUpThreshold}
+          onSwipeUp={this.handleSwipeUp}
           pinchToZoom={this.props.enableImageZoom}
           enableDoubleClickZoom={this.props.enableImageZoom}
           doubleClickInterval={this.props.doubleClickInterval}
@@ -537,7 +540,7 @@ export default class ImageViewer extends React.Component<Props, State> {
               cropWidth={this.width}
               cropHeight={this.height}
               maxOverflow={this.props.maxOverflow}
-              horizontalOuterRangeOffset={this.handleHorizontalOuterRangeOffset}
+              //horizontalOuterRangeOffset={null}
               responderRelease={this.handleResponderRelease}
               onMove={this.props.onMove}
               onLongPress={this.handleLongPressWithIndex.get(index)}
@@ -548,6 +551,9 @@ export default class ImageViewer extends React.Component<Props, State> {
               enableSwipeDown={this.props.enableSwipeDown}
               swipeDownThreshold={this.props.swipeDownThreshold}
               onSwipeDown={this.handleSwipeDown}
+              enableSwipeUp={this.props.enableSwipeUp}
+              swipeUpThreshold={this.props.swipeUpThreshold}
+              onSwipeUp={this.handleSwipeUp}
               panToMove={!this.state.isShowMenu}
               pinchToZoom={this.props.enableImageZoom && !this.state.isShowMenu}
               enableDoubleClickZoom={this.props.enableImageZoom && !this.state.isShowMenu}
@@ -679,6 +685,13 @@ export default class ImageViewer extends React.Component<Props, State> {
   public handleSwipeDown = () => {
     if (this.props.onSwipeDown) {
       this.props.onSwipeDown();
+    }
+    this.handleCancel();
+  };
+  
+  public handleSwipeUp = () => {
+    if (this.props.onSwipeUp) {
+      this.props.onSwipeUp();
     }
     this.handleCancel();
   };

@@ -44,7 +44,7 @@ export class Props {
   /**
    * 背景颜色
    */
-  public backgroundColor?: string = 'black';
+  public backgroundColor?: string = 'transparent';
 
   /**
    * style props for the footer container
@@ -78,6 +78,17 @@ export class Props {
    * threshold for firing swipe down function
    */
   public swipeDownThreshold?: number;
+  
+  /**
+   * Enable swipe up to close image viewer.
+   * When swipe up, will trigger onCancel.
+   */
+  public enableSwipeUp?: boolean = false;
+
+  /**
+   * threshold for firing swipe down function
+   */
+  public swipeUpThreshold?: number;
 
   public doubleClickInterval?: number;
 
@@ -198,6 +209,13 @@ export class Props {
    * function that fires when user swipes down
    */
   public onSwipeDown?: () => void = () => {
+    //
+  };
+  
+  /**
+   * function that fires when user swipes down
+   */
+  public onSwipeUp?: () => void = () => {
     //
   };
 
